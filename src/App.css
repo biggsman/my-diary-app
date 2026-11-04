@@ -1,0 +1,272 @@
+.app-window {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #333;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.app-header h1 {
+  font-size: 28px;
+  color: #1e293b;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.main-content-layout {
+  display: flex;
+  gap: 30px;
+}
+
+.left-sidebar {
+  flex: 1;
+  max-width: 320px;
+}
+
+.right-content {
+  flex: 2;
+}
+
+/* 달력 스타일 */
+/* 1. 카드 박스 자체의 내부 여백(위아래 16px → 10px)을 줄여 박스를 콤팩트하게 만듭니다 */
+.diary-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 4px 20px; /* 위아래 패딩을 10px로 줄임 */
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  transition: all 0.2s ease;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.calendar-header button {
+  background: none;
+  border: 1px solid #cbd5e1;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: bold;
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 10px;
+}
+
+.calendar-days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.calendar-day-btn {
+  background: none;
+  border: none;
+  padding: 8px 0;
+  text-align: center;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.calendar-day-btn:hover {
+  background: #f1f5f9;
+}
+
+.calendar-day-btn.active {
+  background: #3b82f6;
+  color: white;
+  font-weight: bold;
+}
+
+.clear-filter-btn {
+  width: 100%;
+  padding: 10px;
+  background: #f1f5f9;
+  border: none;
+  border-radius: 8px;
+  color: #475569;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* 입력 폼 및 필터 */
+.input-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.diary-input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.submit-btn {
+  padding: 0 20px;
+  background: #0284c7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.list-filter-bar {
+  margin-bottom: 25px;
+}
+
+/* 일기 리스트 카드 스타일 */
+.diary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.diary-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  transition: all 0.2s ease;
+}
+
+.diary-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.diary-card.pending-style {
+  border-left: 4px solid #3b82f6;
+}
+
+.diary-card-header {
+  width: 100%;
+}
+
+/* 2줄 배치를 위한 세로 Flex 변경 */
+/* 2. 1층(날짜-예정)과 2층(작업내용) 사이의 수직 간격(10px → 4px)을 좁힙니다 */
+.view-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0px; /* 간격을 4px->0px로 바짝 줄임 */
+  width: 100%;
+}
+
+/* 1층: 날짜와 상태 아이콘을 나란히 배치 */
+/* 1. 날짜와 예정 버튼 사이의 가로 간격을 완전히 0으로 붙입니다 */
+.diary-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0px; /* 기존 12px에서 0px로 변경하여 사이 공백을 없앱니다 */
+}
+
+/* 2. 날짜 배경색 상자의 우측 내부 여백을 줄여 버튼이 더 왼쪽으로 밀려오게 만듭니다 */
+.diary-dateclickable {
+  font-size: 13px;
+  color: #64748b;
+  background: #f8fafc;
+  padding: 3px 4px 6px 12px; /* 우측 여백만 4px로 바짝 줄임 (위, 우, 아래, 좌 순서) */
+  border-radius: 6px;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.star-toggle-icon {
+  font-size: 13px;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+}
+
+.star-toggle-icon.active {
+  color: #3b82f6;
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+/* 2층: 일기 본문 텍스트가 아래로 떨어지도록 독립 설정 */
+/* 3. 작업 내용 텍스트 상단의 불필요한 여백(4px → 0px)을 완전히 제거합니다 */
+.diary-content-text {
+  width: 100%;
+  font-size: 15px;
+  color: #1e293b;
+  font-weight: 500;
+  line-height: 1.2; /* 줄간격도 약간 더 조밀하게 조정 */
+  word-break: break-all;
+  padding-top: 0px; /* 상단 여백 제거 */
+}
+
+/* 편집 모드 스타일 */
+.edit-zone {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.date-edit-picker {
+  padding: 6px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+
+.content-edit-input {
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.save-edit-btn {
+  padding: 6px 14px;
+  background: #22c55e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cancel-edit-btn {
+  padding: 6px 14px;
+  background: #64748b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
